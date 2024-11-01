@@ -32,11 +32,11 @@ export async function paraphraseText(text: string): Promise<string> {
     });
 
     const completion = await openai.chat.completions.create({
-      model: "gpt-4-0125-preview",
+      model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant that paraphrases text while maintaining the same meaning. Keep the tone and style similar but use different wording. Preserve any placeholders in the format __TAG{number}__."
+          content: "You are a helpful assistant that paraphrases text while maintaining the same meaning and similar length to keep easy to read subtitle. Keep the tone and style similar but use different wording. Preserve any placeholders in the format __TAG{number}__."
         },
         {
           role: "user",

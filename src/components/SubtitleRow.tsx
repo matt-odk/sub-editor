@@ -20,7 +20,7 @@ export default function SubtitleRow({
   isLoading
 }: SubtitleRowProps) {
   const rowClassName = subtitle.isEdited || subtitle.isParaphrased 
-    ? 'hover:bg-green-50 bg-green-50/50'
+    ? 'hover:bg-teal-200 bg-teal-200/50'
     : 'hover:bg-gray-50';
 
   return (
@@ -35,7 +35,7 @@ export default function SubtitleRow({
         {subtitle.endTime}
       </td>
       <td className="p-2 text-sm text-gray-900">
-        <div className="flex items-start gap-2 min-h-[80px]">
+        <div className="flex flex-col gap-2 min-h-[80px]">
           <textarea
             value={subtitle.isParaphrased && subtitle.paraphrasedText ? subtitle.paraphrasedText : subtitle.text}
             onChange={(e) => {
@@ -46,9 +46,9 @@ export default function SubtitleRow({
               );
               onSubtitleChange(subtitle.id, 'isEdited', 'true');
             }}
-            className="flex-1 h-full p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 resize-none"
+            className="flex-1 p-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 resize-none"
           />
-          <div className="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="flex justify-start gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
             {subtitle.paraphrasedText && (
               <button
                 onClick={() => onToggleParaphrase(subtitle.id)}
